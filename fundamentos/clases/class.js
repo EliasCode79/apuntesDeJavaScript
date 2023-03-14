@@ -12,6 +12,15 @@ class Persona {
 		this.codigo = codigo;
 		this.frase = frase;
 	}
+
+	quienSoy() {
+		console.log(`Soy ${this.nombre} y mi identidad es: ${this.codigo}`);
+	}
+
+	miFrase() {
+		this.quienSoy(); // usando un metodo de la clase.
+		console.log(`${this.codigo} dice: ${this.frase}`);
+	}
 }
 
 const sinNombre = new Persona();
@@ -20,3 +29,8 @@ const spierman = new Persona('peter', 'spiderman', 'tu amigo el hombre araña');
 console.log(spierman);
 const ironman = new Persona('tony', 'ironman', 'Yo soy ironman');
 console.log(ironman);
+
+ironman.quienSoy(); // un metodo de un objeto se ejecuta cuando tiene los parentesis '()', si no tiene los tiene solo esta haciendo referencia(no se esta ejecutando)
+console.log(ironman.quienSoy); // mostramos la referencia del metodo del objeto.
+
+ironman.miFrase();
