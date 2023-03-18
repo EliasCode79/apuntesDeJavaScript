@@ -5,6 +5,7 @@ class Persona {
 	nombre = '';
 	codigo = '';
 	frase = '';
+	comida = '';
 
 	// El constructor por defecto retorna una instacia de un objeto.
 	constructor(nombre = 'Sin nombre', codigo = 'Sin codigo', frase = 'Sin frase') {
@@ -21,16 +22,30 @@ class Persona {
 		this.quienSoy(); // usando un metodo de la clase.
 		console.log(`${this.codigo} dice: ${this.frase}`);
 	}
+
+	set setComida(comida) {
+		this.comida = comida.toUpperCase();
+	}
+
+	get getComida() {
+		return `la comida favorita de spiderman es el ${this.comida}`;
+	}
 }
 
 const sinNombre = new Persona();
-console.log(sinNombre);
-const spierman = new Persona('peter', 'spiderman', 'tu amigo el hombre araña');
-console.log(spierman);
-const ironman = new Persona('tony', 'ironman', 'Yo soy ironman');
-console.log(ironman);
+const spiderman = new Persona('peter', 'spiderman', 'tu amigo el hombre araña');
 
-ironman.quienSoy(); // un metodo de un objeto se ejecuta cuando tiene los parentesis '()', si no tiene los tiene solo esta haciendo referencia(no se esta ejecutando)
-console.log(ironman.quienSoy); // mostramos la referencia del metodo del objeto.
+//  Los set y get no se llaman entre parentesis, se llamas como a sus propiedades y le pasa por asignacion el valor(para el caso del set).
+spiderman.setComida = 'pastel de la tia mey';
+console.log(spiderman);
 
-ironman.miFrase();
+// Invocando el metodo get
+console.log(spiderman.getComida);
+// spiderman.miFrase();
+
+// NOTA.- En JS se puede crear propiedades fuera de la clase, este es na de las cosas q JS permite, lo cual no conviene a la hora de programar.
+/*
+
+	spiderman.antogonista = 'duende verde';  // Js permite esto.
+	
+*/
